@@ -4,6 +4,12 @@
 
 ### Minor Changes
 
+- b8f200e: feat(\*): add typia plugin for bun
+
+## 0.1.0
+
+### Minor Changes
+
 - 6800079: feat: add passing sourceFiles option and expose onLoadCallback
   feat: add inline option
 
