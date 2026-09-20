@@ -81,7 +81,7 @@ const typiaPlugin = (options?: {
                 program.getSourceFiles().filter((file) => {
                     return (
                         !file.isDeclarationFile &&
-                        resolve(file.fileName).indexOf(process.cwd()) !== -1
+                        !resolve(file.fileName).includes('node_modules')
                     );
                 }),
                 [
