@@ -5,8 +5,21 @@ Adds support for [typia](https://github.com/samchon/typia), a transformer librar
 ## Installation
 
 ```sh
-bun add bun-plugin-typia -d
+bun add typia
+bun add -d bun-plugin-typia typescript
 ```
+
+`typia` and `typescript` are peer dependencies. Install the versions you want to use.
+
+## Supported versions
+
+| `bun-plugin-typia` | typia | TypeScript |
+|---|---|---|
+| 1.x | 5.5.4 to 11.x | 5.x |
+
+typia 6, 7 and 8 also need `@samchon/openapi`. Install it with `bun add @samchon/openapi`.
+
+typia 12 and later are not supported by 1.x.
 
 ## Plugin usage
 

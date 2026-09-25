@@ -55,15 +55,28 @@ test("should be able to use validateEquals function", async () => {
       ]);
   });
 
-test("should be able to use random function", async () => {    
-    const input: IMember = typia.random<IMember>();
+// typia.random ignores ExclusiveMinimum in some versions, so the random tests
+// use a type without it.
+interface IRandomMember {
+    id: string & tags.Format<"uuid">;
+    email: string & tags.Format<"email">;
+    age: number & tags.Type<"uint32"> & tags.Minimum<20> & tags.Maximum<100>;
+}
 
-    expect(typia.validate<IMember>(input).success).toEqual(true);    
-  });
+test("should be able to use random function", async () => {
+    for (let i = 0; i < 2000; i++) {
+        const input: IRandomMember = typia.random<IRandomMember>();
 
-test("should be able to use assert function", async () => {    
-    const input: IMember = typia.random<IMember>();
+        expect(typia.validate<IRandomMember>(input).success).toEqual(true);
+    }
+});
 
-    expect(() => typia.assert<IMember>(input)).not.toThrow();
-    expect(typia.validate<IMember>(input).success).toEqual(true);
-  });
+test("should be able to use assert function", async () => {
+    for (let i = 0; i < 2000; i++) {
+        const input: IRandomMember = typia.random<IRandomMember>();
+
+        expect(() => typia.assert<IRandomMember>(input)).not.toThrow();
+    }
+
+    expect(() => typia.assert<IMember>({ id: 5, age: 20.75, email: "a@b.com" })).toThrow();
+});
