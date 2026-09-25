@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { typia: '13.0.0', typescript: '7.0.2' }
+          - { typia: '13.1.19', typescript: '7.0.2' }
           - { typia: '14.0.6', typescript: '7.0.2' }
           - { typia: '15.0.0', typescript: '7.0.2' }
     steps:
@@ -55,3 +55,28 @@ jobs:
 
       - name: Run tests
         run: bun test
+
+  smoke:
+    name: Packed install / typia ${{ matrix.typia }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        typia: ['13.1.19', '14.0.6', '15.0.0']
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install the packed plugin in a clean project and run it
+        env:
+          TYPIA: ${{ matrix.typia }}
+          TYPESCRIPT: '7.0.2'
+        run: scripts/smoke-pack.sh

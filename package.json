@@ -31,7 +31,7 @@
   },
   "peerDependencies": {
     "typescript": ">=7.0.0 <8",
-    "typia": ">=13.0.0 <16"
+    "typia": ">=13.1.19 <16"
   },
   "scripts": {
     "version": "changeset version",
