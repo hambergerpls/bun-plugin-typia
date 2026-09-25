@@ -1,5 +1,11 @@
 # bun-plugin-jsx-script-bundler
 
+## 2.0.2
+
+### Patch Changes
+
+- 2e9b56a: Raise the minimum typia version to 13.1.19. The `typia` peer range is now `>=13.1.19 <16`. With typia 13.0.0 to 13.1.1, an installed plugin fails with `TtscUnstableGenerationError`.
+
 ## 2.0.1
 
 ### Patch Changes
