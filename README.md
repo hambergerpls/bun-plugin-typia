@@ -13,13 +13,24 @@ bun add -d bun-plugin-typia typescript
 
 ## Supported versions
 
-| `bun-plugin-typia` | typia | TypeScript |
-|---|---|---|
-| 1.x | 5.5.4 to 11.x | 5.x |
+| `bun-plugin-typia` | typia | TypeScript | Status |
+|---|---|---|---|
+| 2.x | 15.x | 7.x | Supported |
+| 1.x | 5.5.4 to 11.x | 5.x | No longer supported |
 
-typia 6, 7 and 8 also need `@samchon/openapi`. Install it with `bun add @samchon/openapi`.
+typia 12, 13 and 14 are not supported by any version.
 
-typia 12 and later are not supported by 1.x.
+Version 2 is a thin wrapper around [`@ttsc/unplugin`](https://github.com/samchon/ttsc/tree/master/packages/unplugin), the Bun plugin from the makers of typia. It installs `ttsc` for you. `ttsc` needs Node.js 22.15 or later.
+
+The first run compiles the typia plugin for `ttsc`. This can take a few minutes. Later runs use the cache in `node_modules/.cache/ttsc`.
+
+### Upgrade from 1.x
+
+1. Update the packages: `bun add typia@15` and `bun add -d bun-plugin-typia@2 typescript@7`.
+2. Remove the `verbose` and `disableLoader` options. Version 2 does not have them, and it no longer returns `results` or `onLoadCallback`.
+3. Rename typia APIs that changed in typia 13 to 15. For example, `typia.misc` is now `typia.plain`.
+
+The options of version 2 are the options of `@ttsc/unplugin`: `project`, `compilerOptions` and `plugins`.
 
 ## Plugin usage
 
@@ -87,6 +98,7 @@ test("should be able to use validate function", async () => {
     
     
     expect(res.success).toEqual(false);
+    if (res.success) throw new Error("expected validation to fail");
     expect(res.errors).toEqual([
         {
           path: "$input.id",
