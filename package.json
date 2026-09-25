@@ -26,15 +26,19 @@
     "@changesets/cli": "^3.0.3",
     "@changesets/get-github-info": "^0.6.0",
     "@types/bun": "latest",
-    "typescript": "5.9.3",
-    "typia": "11.0.3"
+    "typescript": "7.0.2",
+    "typia": "15.0.0"
   },
   "peerDependencies": {
-    "typescript": ">=5.0.0 <6",
-    "typia": ">=5.5.4 <12"
+    "typescript": ">=7.0.0 <8",
+    "typia": ">=15.0.0 <16"
   },
   "scripts": {
     "version": "changeset version",
     "release": "changeset publish"
+  },
+  "dependencies": {
+    "@ttsc/unplugin": "^0.30.4",
+    "ttsc": "^0.30.4"
   }
 }

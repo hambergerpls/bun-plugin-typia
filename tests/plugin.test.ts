@@ -20,6 +20,7 @@ test("should be able to use validate function", async () => {
     
     
     expect(res.success).toEqual(false);
+    if (res.success) throw new Error("expected validation to fail");
     expect(res.errors).toEqual([
         {
           path: "$input.id",
@@ -42,6 +43,7 @@ test("should be able to use validateEquals function", async () => {
     
     
     expect(res.success).toEqual(false);
+    if (res.success) throw new Error("expected validation to fail");
     expect(res.errors).toEqual([
         {
           path: "$input.id",

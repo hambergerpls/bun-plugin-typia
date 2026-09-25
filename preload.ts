@@ -1,3 +1,3 @@
 import typiaPlugin from ".";
 
-Bun.plugin(typiaPlugin({verbose: true}));
+Bun.plugin(typiaPlugin());
