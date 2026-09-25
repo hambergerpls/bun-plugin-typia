@@ -15,10 +15,10 @@ bun add -d bun-plugin-typia typescript
 
 | `bun-plugin-typia` | typia | TypeScript | Status |
 |---|---|---|---|
-| 2.x | 15.x | 7.x | Supported |
+| 2.x | 13.x to 15.x | 7.x | Supported |
 | 1.x | 5.5.4 to 11.x | 5.x | No longer supported |
 
-typia 12, 13 and 14 are not supported by any version.
+typia 12 is not supported by any version.
 
 Version 2 is a thin wrapper around [`@ttsc/unplugin`](https://github.com/samchon/ttsc/tree/master/packages/unplugin), the Bun plugin from the makers of typia. It installs `ttsc` for you. `ttsc` needs Node.js 22.15 or later.
 
@@ -26,7 +26,7 @@ The first run compiles the typia plugin for `ttsc`. This can take a few minutes.
 
 ### Upgrade from 1.x
 
-1. Update the packages: `bun add typia@15` and `bun add -d bun-plugin-typia@2 typescript@7`.
+1. Update the packages: `bun add typia@15` (or typia 13 or 14) and `bun add -d bun-plugin-typia@2 typescript@7`.
 2. Remove the `verbose` and `disableLoader` options. Version 2 does not have them, and it no longer returns `results` or `onLoadCallback`.
 3. Rename typia APIs that changed in typia 13 to 15. For example, `typia.misc` is now `typia.plain`.
 

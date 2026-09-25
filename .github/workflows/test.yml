@@ -18,6 +18,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - { typia: '13.0.0', typescript: '7.0.2' }
+          - { typia: '14.0.6', typescript: '7.0.2' }
           - { typia: '15.0.0', typescript: '7.0.2' }
     steps:
       - uses: actions/checkout@v7
