@@ -1,5 +1,11 @@
 # bun-plugin-jsx-script-bundler
 
+## 0.1.1
+
+### Patch Changes
+
+- 555cc87: fix: transform sibling package imports when building from inside a monorepo package (#2)
+
 ## 0.1.0
 
 ### Minor Changes
