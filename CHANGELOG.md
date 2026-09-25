@@ -1,5 +1,11 @@
 # bun-plugin-jsx-script-bundler
 
+## 2.0.1
+
+### Patch Changes
+
+- 8f1207d: Allow typia 13 and 14. The `typia` peer range is now `>=13.0.0 <16`. Tested with typia 13.0.0 to 15.0.0 and TypeScript 7.0.2.
+
 ## 2.0.0
 
 ### Major Changes
